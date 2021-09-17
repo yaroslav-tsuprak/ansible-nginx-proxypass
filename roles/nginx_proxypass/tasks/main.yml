@@ -1,0 +1,10 @@
+---
+# Configure Nginx
+- include_tasks: nginx.yml
+  tags:
+    - nginx
+
+# Vhost configuration
+- include_tasks: vhosts.yml
+  tags:
+    - vhosts

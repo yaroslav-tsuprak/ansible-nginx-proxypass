@@ -1,0 +1,21 @@
+server {
+    server_name {{ address_book_host_name }};
+    listen {{ nginx_listen_port }};
+    set $upstream "{{ nginx_vhosts_upstream }}:{{ nginx_set_upstream_port }}";
+    location / {
+         resolver "{{ nginx_vhosts_resolver }}";
+         proxy_pass_header {{ nginx_vhosts_proxy_pass_header }};
+         proxy_pass {{ nginx_vhosts_proxy_pass }};
+         proxy_set_header {{ nginx_vhosts_proxy_set_header1 }};
+         proxy_set_header {{ nginx_vhosts_proxy_set_header2 }};
+         proxy_set_header {{ nginx_vhosts_proxy_set_header3 }};
+         proxy_set_header {{ nginx_vhosts_proxy_set_header4 }};
+         proxy_http_version {{ nginx_vhosts_proxy_http_version }};
+         proxy_buffering {{ nginx_vhosts_proxy_buffering }};
+         client_max_body_size {{ nginx_vhosts_client_max_body_size }};
+         proxy_read_timeout {{ nginx_vhosts_proxy_read_timeout }};
+         proxy_redirect {{ nginx_vhosts_proxy_redirect }};
+     }
+    access_log {{ nginx_access_log }};
+    error_log {{ nginx_error_log }};
+}

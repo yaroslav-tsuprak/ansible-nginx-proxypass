@@ -1,0 +1,50 @@
+---
+- name: Include addressbook variables
+  include_vars: "{{ address_book_vhost_file_name }}.yml"
+
+- name: Add addressbook vhost config file
+  template:
+    src: "vhost-{{ address_book_vhost_file_name }}.conf.j2"
+    dest: "{{ nginx_vhost_path }}/{{ address_book_vhost_file_name }}.conf"
+    mode: "{{ nginx_conf_mode }}"
+  notify: Reload Nginx
+
+- name: Include box variables
+  include_vars: "{{ box_vhost_file_name }}.yml"
+
+- name: Add box vhost config file
+  template:
+    src: "vhost-{{ box_vhost_file_name }}.conf.j2"
+    dest: "{{ nginx_vhost_path }}/{{ box_vhost_file_name }}.conf"
+    mode: "{{ nginx_conf_mode }}"
+  notify: Reload Nginx
+
+- name: Include network variables
+  include_vars: "{{ network_vhost_file_name }}.yml"
+
+- name: Add network vhost config file
+  template:
+    src: "vhost-{{ network_vhost_file_name }}.conf.j2"
+    dest: "{{ nginx_vhost_path }}/{{ network_vhost_file_name }}.conf"
+    mode: "{{ nginx_conf_mode }}"
+  notify: Reload Nginx
+
+- name: Include jira variables
+  include_vars: "{{ jira_vhost_file_name }}.yml"
+
+- name: Add jira vhost config file
+  template:
+    src: "vhost-{{ jira_vhost_file_name }}.conf.j2"
+    dest: "{{ nginx_vhost_path }}/{{ jira_vhost_file_name }}.conf"
+    mode: "{{ nginx_conf_mode }}"
+  notify: Reload Nginx
+
+- name: Include confluence variables
+  include_vars: "{{ conf_vhost_file_name }}.yml"
+
+- name: Add confluence vhost config file
+  template:
+    src: "vhost-{{ conf_vhost_file_name }}.conf.j2"
+    dest: "{{ nginx_vhost_path }}/{{ conf_vhost_file_name }}.conf"
+    mode: "{{ nginx_conf_mode }}"
+  notify: Reload Nginx

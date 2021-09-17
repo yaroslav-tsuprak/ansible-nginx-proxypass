@@ -1,0 +1,6 @@
+---
+- name: Add new virtual host to Nginx
+  hosts: webservers
+  become: yes
+  roles:
+    - role: nginx_proxypass

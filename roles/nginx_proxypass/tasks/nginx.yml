@@ -1,0 +1,26 @@
+---
+# Nginx setup
+- name: Copy Nginx configuration file to server
+  template:
+    src: nginx.conf.j2
+    dest: "{{ nginx_conf_file_path }}"
+    owner: "{{ root_group }}"
+    group: "{{ root_group }}"
+    mode: "{{ nginx_conf_mode }}"
+  notify: Reload Nginx
+  tags:
+    - setup
+
+- name: Remove default.conf file
+  file:
+    path: "{{ nginx_default_vhost_path }}"
+    state: absent
+  when: nginx_remove_default_vhost
+  notify: Restart Nginx
+
+# Start and enable Nginx
+- name: Ensure nginx is started and enabled to start at boot
+  service:
+    name: nginx
+    state: started
+    enabled: yes

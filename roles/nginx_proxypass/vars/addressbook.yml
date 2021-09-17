@@ -1,0 +1,7 @@
+---
+nginx_server_name       : "{{ address_book_host_name }}"
+nginx_set_upstream      : "{{ nginx_vhosts_upstream }}"
+nginx_set_upstream_port : "80"
+nginx_error_log         : "/var/log/nginx/{{ address_book_vhost_file_name }}-error.log"
+nginx_access_log        : "/var/log/nginx/{{ address_book_vhost_file_name }}-access.log"
+nginx_vhosts_filename   : "{{ address_book_vhost_file_name }}.conf"

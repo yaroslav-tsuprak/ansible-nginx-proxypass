@@ -1,0 +1,23 @@
+---
+ansible_user                 : "netvirus"
+ansible_ssh_private_key_file : "/home/tsuprak@cotes.local/.ssh/nginx"
+
+# vhost-address-book.cotes-group.com
+address_book_vhost_file_name : "addressbook"
+address_book_host_name       : "addressbook.cotes-group.com"
+
+# vhost-box.ennova.energy
+box_vhost_file_name          : "box"
+box_host_name                : "box.ennova.energy"
+
+# vhost-network.ennova.energy
+network_vhost_file_name      : "network"
+network_host_name            : "network.ennova.energy"
+
+# vhost-jira.ennova.energy
+jira_vhost_file_name         : "jira"
+jira_host_name               : "jira.ennova.energy"
+
+# vhost-conf.ennova.energy
+conf_vhost_file_name         : "conf"
+conf_host_name               : "conf.ennova.energy"
